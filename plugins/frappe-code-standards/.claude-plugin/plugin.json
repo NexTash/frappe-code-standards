@@ -1,0 +1,20 @@
+{
+  "name": "frappe-code-standards",
+  "displayName": "Frappe Code Standards",
+  "version": "1.0.5",
+  "description": "Senior Frappe/ERPNext developer standards: correct code placement, standard framework APIs, error handling, performance and a review checklist",
+  "author": {
+    "name": "NexTash",
+    "url": "https://github.com/NexTash"
+  },
+  "homepage": "https://github.com/NexTash/Frappe-Code-Standards",
+  "repository": "https://github.com/NexTash/Frappe-Code-Standards",
+  "license": "MIT",
+  "keywords": [
+    "frappe",
+    "erpnext",
+    "python",
+    "coding-standards",
+    "code-review"
+  ]
+}

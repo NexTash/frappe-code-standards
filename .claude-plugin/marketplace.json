@@ -1,0 +1,14 @@
+{
+  "name": "nextash",
+  "description": "Claude Code plugins by NexTash",
+  "owner": {
+    "name": "NexTash"
+  },
+  "plugins": [
+    {
+      "name": "frappe-code-standards",
+      "source": "./plugins/frappe-code-standards",
+      "description": "Senior Frappe/ERPNext developer standards: correct code placement, standard framework APIs, error handling, performance and a review checklist"
+    }
+  ]
+}
