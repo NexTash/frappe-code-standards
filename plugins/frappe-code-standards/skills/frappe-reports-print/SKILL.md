@@ -1,3 +1,8 @@
+---
+name: frappe-reports-print
+description: Frappe/ERPNext Script Reports, Query Reports, Report Builder, Print Formats, Jinja templates and PDF. Use when building or fixing a report or a print format.
+---
+
 # Reports and Printing
 
 ## Choosing the report type

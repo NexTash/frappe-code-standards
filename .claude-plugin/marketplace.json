@@ -8,7 +8,8 @@
     {
       "name": "frappe-code-standards",
       "source": "./plugins/frappe-code-standards",
-      "description": "Senior Frappe/ERPNext developer standards: correct code placement, standard framework APIs, error handling, performance and a review checklist"
+      "description": "Branched Frappe/ERPNext v14-v16 standards: core rules plus focused skills for server scripts, reports, performance, permissions, workflow, upgrade, debug, testing, ops and more, with review/build/migrate agents and commands.",
+      "version": "2.0.0"
     }
   ]
 }

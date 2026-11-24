@@ -1,8 +1,8 @@
 {
   "name": "frappe-code-standards",
   "displayName": "Frappe Code Standards",
-  "version": "1.0.5",
-  "description": "Senior Frappe/ERPNext developer standards: correct code placement, standard framework APIs, error handling, performance and a review checklist",
+  "version": "2.0.0",
+  "description": "Branched Frappe/ERPNext v14-v16 standards: core rules plus focused skills for server scripts, reports, performance, permissions, workflow, upgrade, debug, testing, ops and more, with review/build/migrate agents and commands.",
   "author": {
     "name": "NexTash",
     "url": "https://github.com/NexTash"
@@ -16,5 +16,6 @@
     "python",
     "coding-standards",
     "code-review"
-  ]
+  ],
+  "skills": "./skills/"
 }

@@ -1,3 +1,8 @@
+---
+name: frappe-performance
+description: Frappe/ERPNext speed. Use when code is slow, for heavy queries, N+1 loops, caching, indexes, background jobs with frappe.enqueue, or bulk data work.
+---
+
 # Performance
 
 ## Queries

@@ -7,6 +7,13 @@
 - [ ] Business rules enforced on the server, not only in JS.
 - [ ] No duplicate `frappe.ui.form.on` blocks or duplicate controller methods.
 
+## Field layout
+- [ ] Read the DocType's current field list before adding fields; `insert_after` names a real field.
+- [ ] Related fields grouped under one labelled Section Break; max 2 fields per row, Column Break after every 2nd field.
+- [ ] No orphan column; long fields (Text, Table) full-width in their own row.
+- [ ] Child table under its own Section Break; at most 4–5 `in_list_view` columns in the grid.
+- [ ] Form opened after migrate: sections in order, no scattered fields.
+
 ## Framework APIs
 - [ ] Errors: `frappe.throw(_())`; info: `frappe.msgprint(_())` / `frappe.show_alert`.
 - [ ] All user-facing strings use `_()` / `__()` with `{0}` placeholders.
