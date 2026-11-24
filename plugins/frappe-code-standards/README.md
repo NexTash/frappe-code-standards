@@ -28,6 +28,13 @@ claude plugin marketplace add NexTash/Frappe-Code-Standards
 claude plugin install frappe-code-standards@nextash
 ```
 
+## What's included
+
+- **Skills:** `frappe-core` (core rules) plus focused skills for reports, permissions, workflows,
+  performance, debugging, testing, ops, upgrades and more. Claude loads only the one a task needs.
+- **Agents:** `frappe-builder`, `frappe-reviewer`, `frappe-doctor`, `frappe-migrator`.
+- **Commands:** `/frappe-review`, `/frappe-new-field`, `/frappe-upgrade-check`.
+
 ## Use in a project
 
 Copy `templates/CLAUDE.md` from the repository into your project root and fill in your Frappe

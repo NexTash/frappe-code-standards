@@ -12,7 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/Frappe-v15%20%7C%20v16-red" alt="Frappe v15 | v16">
+  <img src="https://img.shields.io/badge/Frappe-v14%20%7C%20v15%20%7C%20v16-red" alt="Frappe v14 | v15 | v16">
   <img src="https://img.shields.io/badge/Claude%20Code-plugin-white" alt="Claude Code plugin">
 </p>
 
@@ -90,9 +90,11 @@ def validate_dates(self):
 - **Data access** — explicit fields, no queries in loops, Query Builder over raw SQL
 - **Security** — permission checks in whitelisted methods, parameterised queries
 - **Review** — a checklist before finishing, plus the `bench` commands to run
+- **Version safety** — v14, v15 and v16 differences, and what to change when upgrading
 
-The full rules live in [`SKILL.md`](plugins/frappe-code-standards/skills/frappe-code-standards/SKILL.md),
-with detailed patterns in the [`references/`](plugins/frappe-code-standards/skills/frappe-code-standards/references) folder.
+The core rules live in [`frappe-core/SKILL.md`](plugins/frappe-code-standards/skills/frappe-core/SKILL.md).
+Focused skills cover the rest — reports, permissions, workflows, performance, debugging, testing,
+ops and more — and Claude loads only the one the task needs, so context stays small.
 
 ## Installation
 
@@ -115,11 +117,12 @@ claude plugin enable frappe-code-standards@nextash
 
 ### claude.ai
 
-Zip the skill folder and upload it under **Skills** in your claude.ai settings:
+Each skill is its own folder. Zip the ones you want and upload them under **Skills** in your
+claude.ai settings. Start with `frappe-core`:
 
 ```bash
 cd plugins/frappe-code-standards/skills
-zip -r frappe-code-standards.zip frappe-code-standards
+zip -r frappe-core.zip frappe-core
 ```
 
 ## Using it in a project
@@ -135,16 +138,38 @@ Spot a mistake Claude keeps making in that one project? Add a line under **Proje
 
 ```
 plugins/frappe-code-standards/
-└── skills/frappe-code-standards/
-    ├── SKILL.md                         Core rules, loaded when you work on Frappe code
-    └── references/
-        ├── code-placement.md            Where every kind of code belongs
-        ├── server-patterns.md           Controllers, whitelisted methods, errors, DB access
-        ├── client-patterns.md           Form scripts, set_query, dialogs, child tables
-        ├── hooks-and-customization.md   hooks.py, doc_events, fixtures, patches
-        ├── performance.md               Queries, caching, background jobs
-        ├── reports-and-printing.md      Script and query reports, print formats
-        └── review-checklist.md          What Claude checks before finishing a task
+├── skills/
+│   ├── frappe-core/              Core rules: placement, standard APIs, field layout, review checklist
+│   ├── frappe-architect/         Plan a feature or app before coding
+│   ├── frappe-data/              Data Import, bulk updates, migration and cleanup
+│   ├── frappe-debug/             Tracebacks, 403/404/417, errors that don't show up
+│   ├── frappe-erpnext-modules/   Selling, buying, stock, manufacturing, accounts, HRMS, CRM
+│   ├── frappe-flow/              Frappe Flow AI assistant and agent framework
+│   ├── frappe-insights/          Frappe Insights dashboards and queries
+│   ├── frappe-integrations/      REST API, webhooks, OAuth, external APIs, Data Import
+│   ├── frappe-notifications/     Email, Notification rules, alerts, realtime
+│   ├── frappe-ops/               bench, sites, deployment, backup and restore
+│   ├── frappe-performance/       Slow queries, N+1, caching, indexes, background jobs
+│   ├── frappe-permissions/       Roles, User Permissions, permission hooks
+│   ├── frappe-reports-print/     Script/Query Reports, Print Formats, Jinja, PDF
+│   ├── frappe-scheduler/         Scheduler events, queues and jobs
+│   ├── frappe-security/          Whitelisted methods, SQL injection, XSS, guest access
+│   ├── frappe-server-scripts/    Server Scripts and the RestrictedPython sandbox
+│   ├── frappe-studio/            Visual low-code app builder
+│   ├── frappe-testing/           Unit and integration tests, CI
+│   ├── frappe-ui/                Workspaces, dashboards, custom pages, frappe-ui
+│   ├── frappe-upgrade/           v14 → v15 → v16 differences and removed APIs
+│   ├── frappe-website/           Web pages, web forms, portal
+│   └── frappe-workflow/          Workflows and approval chains
+├── agents/
+│   ├── frappe-builder.md         Builds a full feature: DocType, controller, JS and tests
+│   ├── frappe-reviewer.md        Reviews code against the core rules
+│   ├── frappe-doctor.md          Diagnoses errors
+│   └── frappe-migrator.md        Plans a version upgrade
+└── commands/
+    ├── frappe-review.md          /frappe-review — findings table for your changes
+    ├── frappe-new-field.md       /frappe-new-field — add a field the right way
+    └── frappe-upgrade-check.md   /frappe-upgrade-check — scan for removed APIs
 ```
 
 The plugin is plain Markdown. It runs no scripts, makes no network calls and collects no data.
@@ -154,7 +179,7 @@ The plugin is plain Markdown. It runs no scripts, makes no network calls and col
 Found a pattern Claude still gets wrong, or a rule that doesn't match how the Frappe community
 works? [Open an issue](../../issues/new/choose) using the bug report or feature request template,
 with a short example of the bad output and what it should have been. Pull requests against the
-files in `references/` are welcome too. Rules should be concrete, show a right and wrong
+files in `skills/` are welcome too. Rules should be concrete, show a right and wrong
 example where it helps, and follow the official
 [Frappe documentation](https://docs.frappe.io/framework).
 
